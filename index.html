@@ -9,184 +9,262 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
 <style>
-  /* Reset and base */
+  /* Reset & base */
   body {
     font-family: 'Open Sans', sans-serif;
     background: #f9f9f9;
     color: #333;
-    margin: 0;
-    padding: 20px;
-  }
-  a {
-    color: #1a2b49;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
+    margin: 20px;
+    animation: fadeInPage 1s ease forwards;
+    opacity: 0;
   }
 
-  /* Container */
+  @keyframes fadeInPage {
+    to { opacity: 1; }
+  }
+
   .container {
     max-width: 720px;
     margin: 0 auto;
-    padding: 0 15px;
   }
 
   /* Breadcrumb */
   .breadcrumb {
     font-size: 14px;
     margin-bottom: 20px;
-    color: #555;
+    color: #1a2b49;
   }
   .breadcrumb a {
     color: #1a2b49;
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    text-decoration: underline;
   }
   .breadcrumb span {
-    margin: 0 5px;
+    margin: 0 6px;
+    color: #777;
   }
 
-  /* Heading */
+  /* Page Title */
   h1 {
     font-weight: 600;
     font-size: 28px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: #1a2b49;
   }
-  p.description {
+
+  /* Description paragraph */
+  .description p {
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 30px;
     color: #555;
   }
 
-  /* Product Card */
-  .product {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(26, 43, 73, 0.1);
-    padding: 20px 25px;
-    margin-bottom: 24px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .product.visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* Product heading */
+  .product-heading {
+    font-weight: 600;
+    font-size: 22px;
+    color: #1a2b49;
+    margin-top: 40px;
+    margin-bottom: 8px;
   }
 
-  /* Product Title */
-  .product-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1a2b49;
-    margin-bottom: 10px;
+  /* Product section */
+  section.product {
+    background: #fff;
+    padding: 18px 22px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    animation: fadeSlideUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  section.product:nth-child(3) { animation-delay: 0.15s; }
+  section.product:nth-child(4) { animation-delay: 0.3s; }
+  section.product:nth-child(5) { animation-delay: 0.45s; }
+  section.product:nth-child(6) { animation-delay: 0.6s; }
+  section.product:nth-child(7) { animation-delay: 0.75s; }
+  section.product:nth-child(8) { animation-delay: 0.9s; }
+  section.product:nth-child(9) { animation-delay: 1.05s; }
+  section.product:nth-child(10) { animation-delay: 1.2s; }
+  section.product:nth-child(11) { animation-delay: 1.35s; }
+  section.product:nth-child(12) { animation-delay: 1.5s; }
+
+  @keyframes fadeSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Product details */
   .product p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
-    color: #444;
     margin: 6px 0;
+    color: #444;
   }
-  .product p strong {
-    color: #1a2b49;
-  }
-  .product em {
-    display: block;
-    margin-top: 12px;
+
+  /* Emphasize Marketed by */
+  .marketed {
     font-style: italic;
     color: #777;
+    margin-top: 12px;
+  }
+
+  /* Strong text style */
+  strong {
+    color: #1a2b49;
   }
 
   /* Responsive */
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
     body {
-      padding: 15px;
+      margin: 12px 12px;
     }
-    .product {
-      padding: 15px 18px;
-    }
-    h1 {
-      font-size: 24px;
-    }
-    .product-title {
-      font-size: 18px;
+    .container {
+      max-width: 100%;
     }
   }
 </style>
 </head>
 <body>
 
-<div class="container" role="main" aria-label="Diabetes Care Products">
+<div class="container" role="main" aria-label="Diabetes Care Products Information">
 
-  <!-- Breadcrumb -->
+  <!-- Breadcrumb navigation -->
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="https://drdosepharmaceuticals.github.io/">Home</a>
+    <a href="/home">Home</a>
     <span>›</span>
-    <span>Diabetes Care Products</span>
+    <a href="/products">Products</a>
+    <span>›</span>
+    <span aria-current="page">Diabetes Care Products</span>
   </nav>
 
   <h1>Diabetes Care Products</h1>
 
-  <p class="description">
-    Our Diabetes Care portfolio offers trusted, effective treatments designed for managing Type 2 Diabetes with a focus on quality, safety, and patient wellbeing. Explore our comprehensive range of pharmaceutical products, crafted to support blood sugar control and improve patient outcomes.
-  </p>
+  <!-- Page description -->
+  <div class="description">
+    <p>
+      Our Diabetes Care portfolio offers trusted, effective treatments designed for managing Type 2 Diabetes with a focus on quality, safety, and patient wellbeing. Explore our comprehensive range of pharmaceutical products, crafted to support blood sugar control and improve patient outcomes.
+    </p>
+  </div>
 
-  <!-- Product List -->
-  <article class="product">
-    <h2 class="product-title">Glimidose-M1</h2>
+  <!-- Products list -->
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Glimidose-M1</h2>
     <p><strong>Composition:</strong> Glimepiride (1mg) + Metformin Hydrochloride SR (500mg)</p>
     <p><strong>Description:</strong> Used to treat Type-2 Diabetes mellitus in adults. Helps control blood sugar levels effectively. Combination of sulfonylurea and biguanide. Supports insulin production and reduces liver glucose output.</p>
     <p><strong>Usage Instructions:</strong> Take as directed by your physician. Swallow with water after meals. Do not crush or chew the tablet.</p>
     <p><strong>Storage & Safety:</strong> Store in a cool, dry place away from direct sunlight. Keep out of reach of children. Use only under medical supervision.</p>
     <p><strong>Precautions:</strong> Not recommended for Type 1 diabetes. Inform your doctor about any kidney or liver issues. Monitor blood sugar levels regularly.</p>
-    <p><em>Marketed by: DR Dose Pharmaceuticals</em></p>
-  </article>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
 
-  <article class="product">
-    <h2 class="product-title">Glimidose-M2</h2>
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Glimidose-M2</h2>
     <p><strong>Composition:</strong> Glimepiride (2mg) + Metformin Hydrochloride Sustain Release (500mg)</p>
     <p><strong>Description:</strong> Combination of Glimepiride (2mg) and Metformin (500mg) for effective blood sugar control. Used to treat Type-2 Diabetes mellitus in adults. Helps control blood sugar levels effectively. Supports insulin production and reduces liver glucose output. Suitable for patients starting on dual therapy.</p>
     <p><strong>Usage Instructions:</strong> Take once daily after meals or as directed by your physician. Do not skip or overdose - follow medical advice carefully.</p>
     <p><strong>Storage & Safety:</strong> Store in a cool, dry place away from direct sunlight. Keep out of reach of children. Use only under medical supervision.</p>
     <p><strong>Precautions:</strong> Not recommended for Type 1 diabetes. Inform your doctor about any kidney or liver issues. Monitor blood sugar levels regularly.</p>
-    <p><em>Marketed by: DR Dose Pharmaceuticals</em></p>
-  </article>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
 
-  <!-- Repeat similarly for all other products (you can add as many as you want) -->
-
-  <article class="product">
-    <h2 class="product-title">Vildose 50 MG</h2>
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Vildose 50 MG</h2>
     <p><strong>Composition:</strong> Vildagliptin (50mg)</p>
     <p><strong>Description:</strong> Vildose 50 is a DPP-4 inhibitor used to manage type 2 diabetes mellitus. It helps improve glycemic control by increasing levels of incretin hormones, which stimulate insulin release and suppress glucagon secretion.</p>
     <p><strong>Usage Instructions:</strong> Take orally with or without food as prescribed by physician. Follow dosage schedule strictly to maintain blood sugar levels.</p>
     <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
     <p><strong>Precautions:</strong> Not recommended for Type 1 diabetes or for treating diabetic ketoacidosis. Inform your doctor if you have kidney or liver issues. Regularly monitor blood sugar levels during treatment. Use with caution during pregnancy or breastfeeding - only under medical supervision.</p>
-    <p><em>Marketed by: DR Dose Pharmaceuticals</em></p>
-  </article>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
 
-  <!-- Add more products similarly -->
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Vildose M</h2>
+    <p><strong>Composition:</strong> Vildagliptin (50mg) + Metformin (500mg)</p>
+    <p><strong>Description:</strong> Vildose M combines Vildagliptin and Metformin to provide dual action in type 2 diabetes treatment. Vildagliptin enhances insulin secretion and reduces glucagon, while Metformin improves insulin sensitivity and lowers hepatic glucose production.</p>
+    <p><strong>Usage Instructions:</strong> Take orally with or without food as prescribed by physician. Follow dosage schedule strictly to maintain blood sugar levels.</p>
+    <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
+    <p><strong>Precautions:</strong> Not recommended for Type 1 diabetes or diabetic ketoacidosis. Inform your doctor if you have kidney or liver issues. Regularly monitor blood sugar levels during treatment. Use with caution during pregnancy or breastfeeding only under medical supervision.</p>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
+
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Tendose 20 MG</h2>
+    <p><strong>Composition:</strong> Teneligliptin (20mg)</p>
+    <p><strong>Description:</strong> DPP-4 inhibitor used for Type 2 diabetes Mellitus. Helps control post-meal and fasting blood glucose. Improves insulin secretion and reduces glucose production. Can be used alone or with other anti-diabetic drugs.</p>
+    <p><strong>Usage Instructions:</strong> Take orally with or without food as prescribed by physician. Follow dosage schedule strictly to maintain blood sugar levels.</p>
+    <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
+    <p><strong>Precautions:</strong> Not recommended for Type 1 diabetes or diabetic ketoacidosis. Inform your doctor if you have kidney or liver issues. Regularly monitor blood sugar levels during treatment.</p>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
+
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Tendose M</h2>
+    <p><strong>Composition:</strong> Teneligliptin (20mg) + Metformin SR (500mg)</p>
+    <p><strong>Description:</strong> Combination of DPP-4 inhibitor and biguanide. Controls blood sugar more effectively than monotherapy. Supports insulin sensitivity and reduces hepatic glucose output. A first-line treatment option for Type 2 Diabetes patients.</p>
+    <p><strong>Usage Instructions:</strong> Take orally with or without food as prescribed by physician. Follow dosage schedule strictly to maintain blood sugar levels.</p>
+    <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
+    <p><strong>Precautions:</strong> Not recommended for Type 1 diabetes or diabetic ketoacidosis. Inform your doctor if you have kidney or liver issues. Avoid alcohol during treatment.</p>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
+
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Metadose SR 500</h2>
+    <p><strong>Composition:</strong> Metformin Hydrochloride sustained Release (500mg)</p>
+    <p><strong>Description:</strong> First-line medicine for Type 2 Diabetes. Belongs to the biguanide class of anti-diabetic drugs. Helps reduce glucose production in the liver. Improves insulin sensitivity and reduces blood sugar levels. Affordable and widely prescribed.</p>
+    <p><strong>Usage Instructions:</strong> Take after meals to minimize stomach upset. Usually prescribed once or twice daily. Swallow whole do not split or crush.</p>
+    <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
+    <p><strong>Precautions:</strong> Not suitable for patients with severe renal impairment. Avoid alcohol while using. Regular renal function tests recommended.</p>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
+
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Metadose SR 1000</h2>
+    <p><strong>Composition:</strong> Metformin Hydrochloride sustained Release (1000mg)</p>
+    <p><strong>Description:</strong> Used for management of Type 2 Diabetes Mellitus. High dose biguanide formulation to reduce liver glucose production. Improves insulin response and enhances glucose uptake. Usually prescribed when lower doses are not effective alone.</p>
+    <p><strong>Usage Instructions:</strong> Take after meals to reduce gastric side effects. Swallow whole do not split or crush.</p>
+    <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
+    <p><strong>Precautions:</strong> Not suitable for patients with advanced kidney or liver disease. Avoid alcohol while using this medication.</p>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
+
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Vildose M forte</h2>
+    <p><strong>Composition:</strong> Vildagliptin (50mg) + Metformin Hydrochloride sustained Release (1000mg)</p>
+    <p><strong>Description:</strong> Combines DPP-4 inhibitor (Vildagliptin) with Metformin SR for powerful blood sugar control. Enhances insulin secretion and reduces glucose production. Ideal for patients not adequately controlled on Metformin alone. Helps maintain post meal and fasting glucose levels.</p>
+    <p><strong>Usage Instructions:</strong> Take after meals to minimize stomach upset. Usually prescribed once or twice daily. Swallow whole do not split or crush. Continue a balanced diet and exercise routine.</p>
+    <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
+    <p><strong>Precautions:</strong> Not recommended for patients with renal or hepatic impairment. Regular blood sugar and kidney function monitoring required. Avoid alcohol while using this medication.</p>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
+
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Glimidose M forte</h2>
+    <p><strong>Composition:</strong> Glimepiride (2mg) + Metformin Hydrochloride sustained Release (1000mg)</p>
+    <p><strong>Description:</strong> Dual-action therapy for Type 2 Diabetes. Glimepiride stimulates insulin release. Metformin SR reduces glucose production and improves insulin sensitivity. Effective in managing fasting and postprandial blood sugar.</p>
+    <p><strong>Usage Instructions:</strong> Take once or twice daily with meals. Swallow whole do not split or crush. Continue a balanced diet and exercise routine.</p>
+    <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
+    <p><strong>Precautions:</strong> Use with caution in elderly and those with kidney or liver impairment. Monitor blood glucose regularly. Risk of hypoglycemia if meal skipped.</p>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
+
+  <section class="product" tabindex="0">
+    <h2 class="product-heading">Tendose M forte</h2>
+    <p><strong>Composition:</strong> Teneligliptin (20mg) + Metformin Hydrochloride sustained Release (1000mg)</p>
+    <p><strong>Description:</strong> Combines Teneligliptin, a DPP-4 inhibitor, with Metformin SR. Helps control blood sugar by increasing insulin and decreasing glucose production. Suitable for patients requiring combination therapy.</p>
+    <p><strong>Usage Instructions:</strong> Take with meals as directed. Swallow whole without crushing. Maintain diet and exercise as prescribed.</p>
+    <p><strong>Storage & Safety:</strong> Store below 30°C in a dry place. Keep away from children and pets. Avoid exposure to sunlight and moisture.</p>
+    <p><strong>Precautions:</strong> Not recommended in Type 1 diabetes or diabetic ketoacidosis. Monitor kidney function and blood sugar regularly.</p>
+    <p class="marketed">Marketed by: DR Dose Pharmaceuticals</p>
+  </section>
 
 </div>
-
-<script>
-  // Animate products on scroll
-  function reveal() {
-    const products = document.querySelectorAll('.product');
-    const windowHeight = window.innerHeight;
-    products.forEach(product => {
-      const elementTop = product.getBoundingClientRect().top;
-      const revealPoint = 150;
-      if (elementTop < windowHeight - revealPoint) {
-        product.classList.add('visible');
-      }
-    });
-  }
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
 
 </body>
 </html>
